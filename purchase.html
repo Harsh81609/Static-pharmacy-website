@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Purchase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label,
+        input,
+        select {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Medicine Purchase From Caring Pharmacy</h1>
+        <form id="purchaseForm">
+            <label for="medicineName">Medicine Name:</label>
+            <input type="text" placeholder="Enter Medicine Name" id="medicineName" name="medicineName" required>
+            <label for="quantity">Quantity:</label>
+            <input type="number" placeholder="Enter Quantity to Purchase" id="quantity" name="quantity" min="1"
+                required>
+            <label for="paymentMethod">Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod">
+                <option value="creditCard">Credit Card</option>
+                <option value="Debit Card">Debit card</option>
+                <option value="cash">Cash On Delavery</option>
+                <option value="cash">UPI</option>
+            </select>
+            <button type="button" onclick="purchaseMedicine()">Purchase</button>
+        </form>
+        <div id="purchaseResult"></div>
+    </div>
+    <script>
+        function purchaseMedicine() {
+            const medicineName = document.getElementById("medicineName").value;
+            const quantity = document.getElementById("quantity").value;
+            const paymentMethod = document.getElementById("paymentMethod").value;
+            const confirmationMessage = `
+            Thank you for purchasing ${quantity} ${medicineName}(s).
+            Payment method: ${paymentMethod}. 
+            `;
+            document.getElementById("purchaseResult").innerHTML = confirmationMessage;
+        }
+    </script>
+</body>
+
+</html>
